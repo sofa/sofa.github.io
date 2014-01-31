@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SOFA.io | Web App SDK for the CouchCommerce Platform</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="wrapper wrapper--top-line">
+            <div class="container container--top-line">
+                <a href="/" class="home-link">SOFA.io</a>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper--header">
+            <div class="container container--header">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <hgroup>
+                            <h1>SOFA.io</h1>
+                            <h2>Building E-Commerce Web-Apps Made Easy.</h2>
+                        </hgroup>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <img src="images/sofa.png" alt="" class="illustration" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper--call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><b>Subscribe to our newsletter!</b><br>Get notified when SOFA is available.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <form class="form-horizontal" role="form" id="nl-form" novalidate>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control input-lg" name="email" placeholder="E-mail">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success btn-lg" type="submit">Subscribe</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="alert alert-danger hidden" id="nl-warning">Please enter a valid e-mail address.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper--content">
+
+            <div class="container container--intro">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <p class="lead">
+                            SOFA is the Web-App SDK for the <a href="https://www.couchcommerce.com/">CouchCommerce platform</a>.<br> Writing e-commerce web-apps for popular shopping systems (e.g Magento and Shopware) couldn't get any easier.
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="callout">
+                            <strong>Coming Soon</strong>
+                            <p>
+                                We are still polishing some rough edges to make sure you'll have a great experience building e-commerce Web Apps with sofa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container container--features">
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-md-4">
+                        <div class="feature">
+                            <i class="fa fa-puzzle-piece"></i>
+                            <div class="feature-text">
+                                <h3 class="h4">Embraces Modularity</h3>
+                                <p>We split up sofa into decoupled, standalone installable packages. Take what you need. Not more.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-4">
+                        <div class="feature">
+                            <i class="fa fa-flash"></i>
+                            <div class="feature-text">
+                                <h3 class="h4">Powers plenty of production Web Apps</h3>
+                                <p>Although you can't use it yet, CouchCommerce eats its own dog food in production.<br> Plenty of real customers rely on sofa in its pre alpha stage already.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-4">
+                        <div class="feature">
+                            <i class="fa fa-heart"></i>
+                            <div class="feature-text">
+                                <h3 class="h4">We love AngularJS</h3>
+                                <p>None of the platform interaction code depends on any library or framework. Use what you like.</p>
+                                <p>We love <a href="http://angularjs.org/">AngularJS</a> so we created first class bindings and also ship some exclusive AngularJS components on top.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper--footer">
+
+            <div class="container container--footer">
+                <div class="by">
+                    <p>Created by</p>
+                    <a href="https://www.couchcommerce.com"><img src="images/couch-logo.png" alt="CouchCommerce" /></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="message-container">
+        <div class="container">
+            <div class="alert" id="message">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p id="msg-content"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="sofa.js"></script>
+
+</body>
+</html>
