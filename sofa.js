@@ -63,15 +63,12 @@
     form.on('submit', function (e) {
         e.preventDefault();
 
-        if (w_state === 'visible') {
-            return false;
-        }
-
         var value = field.val();
 
         if (value && value !== '') {
 
             if (isValidEmail(value)) {
+                hideWarning();
                 request(value);
             } else {
                 showWarning();

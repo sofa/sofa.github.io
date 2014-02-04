@@ -57,6 +57,14 @@ a {
     margin:0 0 10px;
 }
 
+.github {
+    border-top: 1px solid #FFF;
+    margin: 20px -20px 0;
+    padding: 20px 20px 0;
+    text-align: center;
+}
+
+
 .wrapper--header,
 .wrapper--top-line {
     background-color: #C93636;
