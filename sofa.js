@@ -22,7 +22,7 @@
     var request = function (email) {
         $.ajax({
             type: 'post',
-            url: 'http://couchcommerce.us5.list-manage.com/subscribe/post-json?u=02aba441fd2a29ce779d08303&id=445125cf39&EMAIL=' + email +'&c=?',
+            url: 'http://couchcommerce.us5.list-manage.com/subscribe/post-json?u=02aba441fd2a29ce779d08303&id=11d4ef38e7&EMAIL=' + email +'&c=?',
             dataType: 'jsonp'
         }).done(function (r) {
                 if (r.result === 'success') {
