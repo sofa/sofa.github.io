@@ -15,7 +15,7 @@
 
     var addMessage = function (type, str) {
         msg[0].className = 'alert alert-' + type;
-        msgContent.text(str);
+        msgContent.html(str);
         msgCtnr.addClass('active');
     };
 
