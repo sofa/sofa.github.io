@@ -1,80 +1,73 @@
-(function() {
+;(function() {
 
-    var form       = $('#nl-form');
-    var field      = form.find('input');
-    var warning    = $('#nl-warning');
-    var w_state    = 'hidden';
-    var msgCtnr    = $('#message-container');
-    var msg        = $('#message');
-    var msgContent = $('#msg-content');
-    var msgBtn     = msg.find('button');
+    var $form = $('#nl-form'),
+        $email = $('#email'),
+        $warning = $('#nl-warning'),
+        $submit = $('#submit'),
+        $messageContent = $('#msg-content'),
+        $message = $('#message'),
+        $messageContainer = $('#message-container'),
+        $messageButton = $message.find('button');
 
-    msgBtn.on('click', function () {
-        msgCtnr.removeClass('active');
+
+    disableFormButton();
+
+    $email.on('blur', function () {
+      if (!emailIsValid($email[0].value)) {
+        showWarning();
+        disableFormButton();
+      } else {
+        enableFormButton();
+      }
     });
 
-    var addMessage = function (type, str) {
-        msg[0].className = 'alert alert-' + type;
-        msgContent.html(str);
-        msgCtnr.addClass('active');
-    };
-
-    var request = function (email) {
+    $form.on('submit', function (event) {
+      event.preventDefault();
+      if (emailIsValid($email[0].value)) {
         $.ajax({
             type: 'post',
-            url: 'http://couchcommerce.us5.list-manage.com/subscribe/post-json?u=02aba441fd2a29ce779d08303&id=11d4ef38e7&EMAIL=' + email +'&c=?',
+            url: 'http://couchcommerce.us5.list-manage.com/subscribe/post-json?u=02aba441fd2a29ce779d08303&id=11d4ef38e7&EMAIL=' + $email[0].value +'&c=?',
             dataType: 'jsonp'
-        }).done(function (r) {
-                if (r.result === 'success') {
-                    addMessage('success', r.msg)
-                } else {
-                    addMessage('danger', r.msg)
-                }
-            }).fail(function (r) {
-                addMessage('danger', 'Something went wrong. Please try again later or get in touch with support@couchcommerce.com.');
-            });
-    };
-
-    var isValidEmail = function (str) {
-        var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-        return !!str.match(pattern);
-    };
-
-    var checkMailField = function () {
-        field.on('keyup', function () {
-            if (isValidEmail(this.value)) {
-                hideWarning();
-            }
-        });
-    };
-
-    var showWarning = function () {
-        warning.removeClass('hidden');
-        w_state = 'visible';
-        checkMailField();
-    };
-
-    var hideWarning = function () {
-        warning.addClass('hidden');
-        w_state = 'hidden';
-        field.off('keyup');
-    };
-
-    form.on('submit', function (e) {
-        e.preventDefault();
-
-        var value = field.val();
-
-        if (value && value !== '') {
-
-            if (isValidEmail(value)) {
-                hideWarning();
-                request(value);
+        }).done(function (response) {
+            if (response.result === 'success') {
+              addMessage('success', response.msg);
             } else {
-                showWarning();
+              addMessage('danger', response.msg);
             }
-
-        }
+        }).fail(function () {
+            addMessage('danger', 'Something went wrong. Please try again later or get in touch with support@couchcommerce.com.');
+        });
+      } else {
+        showWarning();
+      }
     });
 
+    $messageButton.on('click', function () {
+        $messageContainer.removeClass('active');
+    });
+
+    function emailIsValid(str) {
+      var pattern = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+      return !!str.match(pattern);
+    }
+
+    function showWarning() {
+      $warning.removeClass('hidden');
+    }
+
+    function disableFormButton() {
+      $submit.addClass('disabled');
+      $submit.attr('disabled', true);
+    }
+
+    function enableFormButton() {
+      $submit.removeClass('disabled');
+      $submit.prop('disabled', false);
+    }
+
+    var addMessage = function (type, str) {
+        $message[0].className = 'alert alert-' + type;
+        $messageContent.html(str);
+        $messageContainer.addClass('active');
+    };
 })();
