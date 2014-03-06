@@ -8,15 +8,9 @@
         $message = $('#message'),
         $messageContainer = $('#message-container'),
         $messageButton = $message.find('button');
-
-
-    disableFormButton();
-
     $email.on('blur', function () {
       if (!emailIsValid($email[0].value)) {
         showWarning();
-        disableFormButton();
-      } else {
         enableFormButton();
       }
     });
@@ -30,7 +24,8 @@
             dataType: 'jsonp'
         }).done(function (response) {
             if (response.result === 'success') {
-              addMessage('success', response.msg);
+              hideWarning();
+              addMessage('success', 'To complete the subscription process, please click the confirmation link we just sent you.');
             } else {
               addMessage('danger', response.msg);
             }
@@ -43,6 +38,8 @@
     });
 
     $messageButton.on('click', function () {
+        console.log('foo');
+        console.log($messageContainer);
         $messageContainer.removeClass('active');
     });
 
@@ -53,6 +50,10 @@
 
     function showWarning() {
       $warning.removeClass('hidden');
+    }
+
+    function hideWarning() {
+      $warning.addClass('hidden');
     }
 
     function disableFormButton() {

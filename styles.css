@@ -17,7 +17,7 @@ h1, .h1 {
 }
 
 a {
-    color:#C93636;
+  color: rgba(107, 162, 185, 1);
 }
 
 .alert {
@@ -198,14 +198,138 @@ a {
     color:#C93636;
 }
 
+.wrapper {
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 3em;
+  padding-bottom: 2em;
+}
+
+.tagline {
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1em;
+  margin-bottom: 2em;
+  font-weight: 300;
+  color: #2e2a25;
+}
+img.logo {
+  width: 100%;
+  max-width: 738px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.form-horizontal {
+  margin-top: 0.5em;
+}
+
+.form-horizontal label {
+  color: #2e2a25;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  margin-bottom: 1em;
+}
+
+.form-horizontal p {
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 0.8em;
+  color: #aaa;
+}
+
+.input-group {
+  margin: 0 auto;
+}
+
+.btn-success {
+  background-color: rgba(107, 162, 185, 1);
+  border-color: rgba(107, 162, 185, 1);
+}
+
+.btn-success:hover, .btn-success:focus {
+  background-color: rgba(82, 135, 175, 1);
+  border-color: rgba(82, 135, 175, 1);
+}
+
+.btn-success.disabled {
+  background-color: rgba(107, 162, 185, 0.6);
+  border-color: rgba(107, 162, 185, 0.6);
+}
+
+footer {
+  margin-top: 4em;
+}
+
+footer ul {
+  max-width: 500px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+}
+
+footer ul li {
+  float: left;
+  width: 50%;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li a {
+  display: block;
+  width: 100%;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  background-position: 50% 50%;
+}
+
+footer ul li#twitter a {
+  background-image: url(images/icn-twitter.png);
+}
+
+footer ul li#github a {
+  background-image: url(images/icn-github.png);
+}
+
+#nl-warning, #message-container {
+  text-align: center;
+  margin: 1em auto 0;
+}
+
 #message-container {
-    position: fixed;
-    top:-100%;
-    width:100%;
-    transition: top .5s;
-    z-index:10;
+  display: none;
 }
 
 #message-container.active {
-    top:0;
+  display: block;
+}
+
+@media only screen and (min-width: 480px) {
+
+  .form-horizontal label {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .form-horizontal {
+    margin-top: 0;
+  }
+
+  .input-group, #nl-warning, #message-container {
+    width: 630px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .tagline {
+    width: 80%;
+  }
 }
