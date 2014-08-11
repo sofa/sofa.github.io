@@ -1,0 +1,1 @@
+"use strict";var breeze=document.querySelector("#breeze"),breezeText=document.querySelector("#breeze-text");breeze.addEventListener("click",function(){breezeText.speak()});
