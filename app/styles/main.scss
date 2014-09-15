@@ -26,6 +26,10 @@ h3 {
     font-size: 22px;
 }
 
+.subscribe-headline {
+    margin-bottom: 1em;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -84,9 +88,11 @@ img {
 .btn {
     background: #6ba4b8;
     border: 0;
+    color: #fff;
 
     &:hover {
         background: #5390a5;
+        color: #fff;
     }
 }
 
@@ -272,6 +278,23 @@ pre {
         margin-right: 0.4em;
     }
 }
+
+.email {
+    border-radius: 0.3em;
+    border: 1px solid #ccc;
+    line-height: 32px;
+    margin: 0;
+    vertical-align: -6%;
+    padding: 0.2em 0.5em;
+    font-size: 18px;
+    margin-right: 0.5em;
+    width: 30%;
+}
+
+.newsletter-form {
+    margin-bottom: 2em;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
